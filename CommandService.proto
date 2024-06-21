@@ -14,9 +14,9 @@ service CommandService {
   rpc EmptyPacket (Empty) returns (Empty);
   rpc Hello (HelloRequest) returns (HelloReply);
   rpc KeepAlivePacket (KeepAlive) returns (KeepAlive);
-  rpc KeepAliveClientStream (stream Empty) returns (Empty);
+  rpc KeepAliveClientStream (stream KeepAlive) returns (Empty);
   rpc KeepAliveServerStream (Empty) returns (stream KeepAlive);
-  
+
   rpc Command (CommandRequest) returns (CommandReply);
   rpc DataCommand (DataCommandRequest) returns (DataCommandReply);
 
@@ -24,14 +24,14 @@ service CommandService {
   rpc DataMessagePacket (DataMessage) returns (Result);
   rpc MessageStream (Empty) returns (stream Message);
   rpc DataMessageStream (Empty) returns (stream DataMessage);
-  
+
   rpc Event (EventRequest) returns (Result);
   rpc EventStream (Empty) returns (stream EventReply);
   rpc Subscribe (SubscribeRequest) returns (SubscribeReply);
 }
 
 message Empty {
-  
+
 }
 
 message Result {
