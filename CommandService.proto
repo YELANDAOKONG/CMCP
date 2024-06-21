@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+// option csharp_namespace = "CommandService";
+// option csharp_namespace = "MessageService";
 option csharp_namespace = "CommandService";
 option java_package = "xyz.yldk.grpc.command";
 option java_outer_classname = "CommandService";
@@ -9,17 +11,17 @@ option java_generate_equals_and_hash = true;
 package command;
 
 service CommandService {
-  rpc Empty (Empty) returns (Empty);
+  rpc EmptyPacket (Empty) returns (Empty);
   rpc Hello (HelloRequest) returns (HelloReply);
-  rpc KeepAlive (KeepAlive) returns (KeepAlive);
+  rpc KeepAlivePacket (KeepAlive) returns (KeepAlive);
   rpc KeepAliveClientStream (stream Empty) returns (Empty);
   rpc KeepAliveServerStream (Empty) returns (stream KeepAlive);
   
   rpc Command (CommandRequest) returns (CommandReply);
   rpc DataCommand (DataCommandRequest) returns (DataCommandReply);
 
-  rpc Message (Message) returns (Result);
-  rpc DataMessage (DataMessage) returns (Result);
+  rpc MessagePacket (Message) returns (Result);
+  rpc DataMessagePacket (DataMessage) returns (Result);
   rpc MessageStream (Empty) returns (stream Message);
   rpc DataMessageStream (Empty) returns (stream DataMessage);
   
